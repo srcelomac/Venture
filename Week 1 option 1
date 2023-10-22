@@ -1,13 +1,10 @@
 import random
 n = int(input())
 
-#alph1 = int(input())
-#alph2 = int(input())
-#alph3 = int(input())
+alph1 = int(input())
+alph2 = int(input())
+alph3 = int(input())
 
-alph1 = 10
-alph2 = 10
-alph3 = 10
 
 globalpoints = 0
 m = 0
@@ -15,7 +12,6 @@ m = 0
 for j in range(n):
     s1 = 'К'*alph1 + 'Н'*alph2 +'Б'*alph3
 
-    #s2 = 'Б'*alph1 + 'К'*alph2 +'Н'*alph3
 
 
     if (max(alph1, max(alph2, alph3)) == alph1):
@@ -32,25 +28,19 @@ for j in range(n):
         r = random.randint(0, 29)
 
         if (s2[i] == s1[r]):
-            #print(s2, s1[r], "Ничья")
             points += 0
         elif (s2[i] == 'К' and s1[r] == 'Н'):
             points += 1
             globalpoints += 1
-            #print(s2, s1[r], "Победа")
         elif (s2[i] == 'Н' and s1[r] == 'Б'):
             points += 1
             globalpoints += 1
-            #print(s2, s1[r], "Победа")
         elif (s2[i] == 'Б' and s1[r] == 'К'):
             points += 1
             globalpoints += 1
-            #print(s2, s1[r], "Победа")
         else:
             points -= 1
             globalpoints -= 1
-            #print(s2, s1[r], "Проигрыш")
     m += points
-    #print(f'№{j} ', points)
 
 print("Итог: ", globalpoints, "Среднее: ", m/n)
