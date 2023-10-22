@@ -1,0 +1,39 @@
+import random
+n = int(input())
+
+alph1 = int(input())
+alph2 = int(input())
+alph3 = int(input())
+
+
+globalpoints = 0
+m = 0
+
+for j in range(n):
+    s1 = 'К'*alph1 + 'Н'*alph2 +'Б'*alph3
+
+    s2 = 'Б'*alph1 + 'К'*alph2 +'Н'*alph3
+
+
+    points = 0
+    #print("Мой", "Соперника", "Исход")
+    for i in range(30):
+        r = random.randint(0, 29)
+
+        if (s2[i] == s1[r]):
+            points += 0
+        elif (s2[i] == 'К' and s1[r] == 'Н'):
+            points += 1
+            globalpoints += 1
+        elif (s2[i] == 'Н' and s1[r] == 'Б'):
+            points += 1
+            globalpoints += 1
+        elif (s2[i] == 'Б' and s1[r] == 'К'):
+            points += 1
+            globalpoints += 1
+        else:
+            points -= 1
+            globalpoints -= 1
+    m += points
+
+print("Итог: ", globalpoints, "Среднее: ", m/n)
