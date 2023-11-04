@@ -58,16 +58,16 @@ int counter(vector <int> vs) {
 }
 
 void graph_traversal(int t, int v, vector <int> visited_v) {
-    if ((v == 0) and (t <= 180)) {                              //220 так как если мы опоздаем на 40 минут,
-        int point = counter(visited_v);     //то из-за штрафа мы не наберем больше, чем
-        if (point > maxp) {                                                 //наш лучший полученный маршрут (15 баллов)
+    if ((v == 0) and (t <= 180)) {                              
+        int point = counter(visited_v);    
+        if (point > maxp) {                                                
             maxp = point;
             max_route = visited_v;
             //cout << point << eol;
         }
     }
 
-    if ((t >= 180) or (visited_v.size() > 18)) return;     //22 максимум вершин мы сможем посетить, (0-(12)-0-(12)-0-(12)-..-0
+    if ((t >= 180) or (visited_v.size() > 18)) return;     //18 максимум вершин мы сможем посетить за 180 минут, (0-(12)-0-(12)-0-(12)-..-0
     else {
         for (auto с: g[v]) {
             int updated_time = t + times[v][с];
